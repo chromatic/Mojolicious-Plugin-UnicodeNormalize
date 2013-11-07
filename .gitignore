@@ -1,0 +1,4 @@
+.prove
+.build/
+Mojolicious-Plugin-UnicodeNormalize-*/
+Mojolicious-Plugin-UnicodeNormalize-*gz
