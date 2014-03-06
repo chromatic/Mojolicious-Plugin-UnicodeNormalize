@@ -1,2 +1,5 @@
+{{$NEXT}}
+    - made compatible with Mojolicious 4.78 and later
+
 1.20131107 - 07 November 2013
     - initial public release

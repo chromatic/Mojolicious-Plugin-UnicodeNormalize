@@ -33,8 +33,8 @@ sub main {
 
     $t->get_ok( '/', form => { name => "Naïve", desc => 'composed' },
         charset => 'UTF-8')->content_is( 'Okay' );
-    $t->get_ok( "/?name=Na\x{ef}ve;desc=single+\\x{}",     charset => 'UTF-8' );
-    $t->get_ok( "/?name=Na\N{U+00EF}ve;desc=single+\\N{}", charset => 'UTF-8' );
+    $t->get_ok( "/?name=Na\x{ef}ve&desc=single+\\x{}",     charset => 'UTF-8' );
+    $t->get_ok( "/?name=Na\N{U+00EF}ve&desc=single+\\N{}", charset => 'UTF-8' );
 
     $t->get_ok( '/', form => get_form( 'NFC'  ), charset => 'UTF-8' );
     $t->get_ok( '/', form => get_form( 'NFD'  ), charset => 'UTF-8' );
