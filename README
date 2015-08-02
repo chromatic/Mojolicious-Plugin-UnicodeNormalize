@@ -46,8 +46,8 @@ Unless you know why you might use an alternate form, use the default of NFC.
 
 AUTHOR
 
-    chromatic <chromatic@cpan.org>, sponsored by Golden Guru
-    <http://goldenguru.com/>.
+    chromatic <chromatic@cpan.org>, sponsored by Blender Recipe Reviews
+    <https://blenderrecipereviews.com/>.
 
 SEE ALSO
     Mojolicious, Unicode::Normalize

@@ -17,12 +17,12 @@ sub register {
 
     my $sub = sub {
         my $c      = shift;
-        my $params = [
-            map { ref( $_ ) ? $_ : $normalizer->( $_ ) }
-            @{ $c->req->params->params }
+        my $params = $c->req->params;
+        my $pairs  = [
+            map { ref( $_ ) ? $_ : $normalizer->( $_ ) } @{ $params->pairs }
         ];
 
-        $c->req->params->params( $params );
+        $params->pairs( $pairs );
     };
 
     $app->hook( before_dispatch => $sub );
@@ -90,8 +90,8 @@ Unless you know why you might use an alternate form, use the default of NFC.
 
 =head1 AUTHOR
 
-chromatic E<lt>chromatic@cpan.orgE<gt>, sponsored by Golden Guru
-(L<http://goldenguru.com/>).
+chromatic E<lt>chromatic@cpan.orgE<gt>, sponsored by Blender Recipe Reviews
+(L<https://blenderrecipereviews.com/>).
 
 =head1 SEE ALSO
 
