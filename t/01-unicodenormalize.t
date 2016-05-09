@@ -30,16 +30,17 @@ sub main {
     my $t = Test::Mojo->new( 'TestApp' );
     binmode Test::More->builder->output,         ':utf8';
     binmode Test::More->builder->failure_output, ':utf8';
+    my $charset = { charset => 'UTF-8' };
 
-    $t->get_ok( '/', form => { name => "Naïve", desc => 'composed' },
-        charset => 'UTF-8')->content_is( 'Okay' );
-    $t->get_ok( "/?name=Na\x{ef}ve&desc=single+\\x{}",     charset => 'UTF-8' );
-    $t->get_ok( "/?name=Na\N{U+00EF}ve&desc=single+\\N{}", charset => 'UTF-8' );
+    $t->get_ok( '/' => $charset => form => { name => "Naïve", desc => 'composed' })
+      ->content_is( 'Okay' );
+    $t->get_ok( "/?name=Na\x{ef}ve&desc=single+\\x{}"     => $charset );
+    $t->get_ok( "/?name=Na\N{U+00EF}ve&desc=single+\\N{}" => $charset );
 
-    $t->get_ok( '/', form => get_form( 'NFC'  ), charset => 'UTF-8' );
-    $t->get_ok( '/', form => get_form( 'NFD'  ), charset => 'UTF-8' );
-    $t->get_ok( '/', form => get_form( 'NFKC' ), charset => 'UTF-8' );
-    $t->get_ok( '/', form => get_form( 'NFKD' ), charset => 'UTF-8' );
+    $t->get_ok( '/' => $charset => form => get_form( 'NFC'  ) );
+    $t->get_ok( '/' => $charset => form => get_form( 'NFD'  ) );
+    $t->get_ok( '/' => $charset => form => get_form( 'NFKC' ) );
+    $t->get_ok( '/' => $charset => form => get_form( 'NFKD' ) );
 
     done_testing;
     return 0;

@@ -1,6 +1,6 @@
 package Mojolicious::Plugin::UnicodeNormalize;
 
-use Mojolicious 4.55;
+use Mojolicious 6.41;
 use Mojo::Base 'Mojolicious::Plugin';
 use Unicode::Normalize ();
 

@@ -1,4 +1,5 @@
 {{$NEXT}}
+    - made compatible with Mojolicious 6.41 and later
 
 1.20150802 2015-08-01 19:23:11-07:00 America/Los_Angeles
     - made compatible with Mojolicious 6.0 and later
